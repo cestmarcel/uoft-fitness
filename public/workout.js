@@ -3,12 +3,12 @@ async function initWorkout() {
   console.log("Last workout:", lastWorkout);
   if (lastWorkout) {
     document
-      .querySelector("a[href='/exercise?']")
-      .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
+      .querySelector("a[href='/exercise.html?']")
+      .setAttribute("href", `/exercise.html?id=${lastWorkout._id}`);
 
     const workoutSummary = {
       date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
+      totalDuration: lastWorkout.exercises.totalDuration,
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };
@@ -17,7 +17,7 @@ async function initWorkout() {
   } else {
     renderNoWorkoutText()
   }
-}
+};
 
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
@@ -31,7 +31,7 @@ function tallyExercises(exercises) {
     return acc;
   }, {});
   return tallied;
-}
+};
 
 function formatDate(date) {
   const options = {
@@ -42,11 +42,10 @@ function formatDate(date) {
   };
 
   return new Date(date).toLocaleDateString(options);
-}
+};
 
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
-
   const workoutKeyMap = {
     date: "Date",
     totalDuration: "Total Workout Duration",
@@ -69,7 +68,7 @@ function renderWorkoutSummary(summary) {
 
     container.appendChild(p);
   });
-}
+};
 
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
@@ -79,6 +78,6 @@ function renderNoWorkoutText() {
 
   p.appendChild(strong);
   container.appendChild(p);
-}
+};
 
 initWorkout();
