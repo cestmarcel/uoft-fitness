@@ -45,6 +45,6 @@ If you want to contribute to this project, please reach out to me here on Github
 - This application uses the Express module for Node.js. Documentation is available under https://www.npmjs.com/package/express. Full documentation for Express.js is available under: https://expressjs.com/en/api.html
 - MongoDB is used as a database to store the workout plans. Documentation under: https://docs.mongodb.com
 - Mongoose is in use for this application as well. Documentation: https://mongoosejs.com/docs/api.html
-- Bootstrap is used to facilitate a the mobil-first setup of the application. Documentation under: https://getbootstrap.com/docs/4.1/getting-started/introduction/
+- Semantic UI is used to facilitate a the mobile-first setup of the application. Documentation under: https://semantic-ui.com/introduction/getting-started.html
 - Google Fonts is in use for the display fonts. More information available under: https://fonts.google.com/about
 
