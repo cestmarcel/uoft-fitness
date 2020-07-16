@@ -13,16 +13,20 @@ body,
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 nav {
-  background-color: #5793fd;
+  background-color: #2C4251;
   color: #ffffff;
   height: 80px;
   padding: 10px;
   line-height: 3;
   font-size: 1.2rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Rubik", sans-serif;
 }
 
 a,
@@ -156,6 +160,18 @@ button {
   border: 1px solid #aaa;
   padding: 10px;
   background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+}
+
+.ui.positive.button {
+  background-color: #FF784F;
+}
+
+.ui.blue.button {
+  background-color: #2C4251;
+}
+
+.ui.positive.button:hover, .ui.blue.button:hover {
+  background-color: gray;
 }
 
 #toast {
