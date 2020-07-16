@@ -20,7 +20,19 @@ app.use(express.static('public'))
 const db = require('./models/Workout');
 const { stat } = require('fs');
 
-// endpoints
+// HTML routes
+
+app.get("/exercise", async function (req, res) {
+    console.log("[GET /api/exercise]");
+    res.sendFile(path.join(__dirname + "/public/exercise.html"));
+})
+
+app.get("/stats", async function (req, res) {
+    console.log("[GET /api/stats");
+    res.sendFile(path.join(__dirname + "/public/stats.html"));
+})
+
+// API endpoints
 app.get("/api/workouts", async function (req, res) {
     console.log("[GET /api/workouts]");
     const workoutList = await db.find({}).populate("exercises");
@@ -29,17 +41,8 @@ app.get("/api/workouts", async function (req, res) {
 
 app.get("/api/workouts/range", async function (req, res) {
     console.log("[GET /api/workouts/range]");
-
-})
-
-app.get("/api/exercise", async function (req, res) {
-    console.log("[GET /api/exercise]");
-    res.sendFile(path.join(__dirname + "/public/exercise.html"));
-})
-
-app.get("/api/stats", async function (req, res) {
-    console.log("[GET /api/stats");
-    res.sendFile(path.join(__dirname + "/public/stats.html"));
+    const lastWeek = await db.find({}).limit(7);
+    res.send(lastWeek);
 })
 
 app.post("/api/workouts", async function (req, res) {
